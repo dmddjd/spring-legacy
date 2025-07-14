@@ -81,7 +81,8 @@
 	
 
 	<!-- Authentication Manger / Provider 등록 -->
-	<context:component-scan base-package="com.kh.spring" />
+	<context:component-scan base-package="com.kh.spring.security" />
+	<context:component-scan base-package="com.kh.spring.member" />
 	
 	<!-- 
 		authentication-manager

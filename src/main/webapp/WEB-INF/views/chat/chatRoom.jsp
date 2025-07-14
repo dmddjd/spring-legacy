@@ -111,6 +111,7 @@
 	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>	
 	<script>
 		/* 채팅설정을 위한 전역변수 등록 */
 		const userNo = '${loginUser.userNo}';
@@ -120,8 +121,12 @@
 		
 		// 웹소켓 연결 요청
 		let chattingSocket = new SockJS(contextPath+"/chat");
+		
+		// stompClient 연결 설정
+		const stompClient = Stomp.over(new SockJS(contextPath+"/stomp"));
 	</script>	
 	<script type="text/javascript" src="${contextPath}/resources/js/chat.js"></script>
+	<script type="text/javascript" src="${contextPath}/resources/js/stomp.js"></script>
 
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 

@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,7 +25,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.kh.spring.member.model.service.MemberService;
 import com.kh.spring.member.model.vo.Member;
 
-@Controller // Component-scan에 의해 bean객체 등록
+// - 교차 출처(Cross Origin)에 대한 모든 접근을 허용한다
+
 @SessionAttributes({"loginUser"}) // Model에 들어가는 데이터 중 Session에 보관시킬 데이터를 설정하는 주석
 public class MemberController {
 	
@@ -37,6 +39,7 @@ public class MemberController {
 	 * - new 연산자를 직접 사용하지 않고, 자료형 선언만 한 후 @Autowired 어노테이션을 통해 주입받음.
  	 */
 	
+	@CrossOrigin // 교차출처 허용
 	@RequestMapping(value = "/member/login", method = RequestMethod.GET)
 	public String loginMember() {
 		return "member/login"; // forwarding 될 jsp의 경로
